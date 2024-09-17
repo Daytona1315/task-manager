@@ -6,10 +6,10 @@ load_dotenv(find_dotenv(".env"))
 
 
 class Settings(BaseSettings):
-    server_host: str = '0.0.0.0'
-    server_port: int = 5000
+    server_host: str
+    server_port: int
     database_url: str = 'sqlite:///src/instance/database.sqlite3'
-    jwt_secret: str = 'SS6pDsI6PkaHDyezUqSWuDGyg4MH8kT_tieBCG7hOWk'
+    jwt_secret: str
     jwt_algorithm: str = 'HS256'
     jwt_expiration: int = 3600
 

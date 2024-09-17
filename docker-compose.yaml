@@ -1,0 +1,33 @@
+services:
+
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - "5001:5000"
+    networks:
+      - dev
+
+  frontend:
+    build:
+      context: ./react-app/task-manager
+    ports:
+      - "3001:3000"
+    networks:
+      - dev 
+
+  nginx:
+    image: nginx:stable-alpine
+    ports:
+      - "80:80"
+    volumes:
+      - './nginx.conf:/etc/nginx/nginx.conf'
+      - ./nginx/html:/var/www/html
+    depends_on:
+      - frontend
+      - backend
+    networks:
+      - dev
+
+networks:
+  dev:

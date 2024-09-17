@@ -1,0 +1,17 @@
+pip-tools
+python-dotenv
+
+fastapi
+uvicorn
+pydantic
+pydantic-settings
+
+sqlalchemy
+alembic
+psycopg2
+
+pylint
+python-multipart
+
+python-jose
+passlib[bcrypt]==4.0.1

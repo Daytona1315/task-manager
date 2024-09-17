@@ -1,0 +1,152 @@
+body {
+    --background-color: #285340; 
+    --color: #F7F3BC;
+    --hover-color: #ECCC7B;
+}
+
+a.text:active, 
+a.text {
+  text-decoration: none;
+  color: var(--color);
+}
+
+.login_container {
+    font-family: Montserrat, sans-serif;
+    max-width: 1780px;
+    margin-top: 150px;
+    padding: 0 30px;
+
+    display: flex;
+    flex-direction: column;
+
+}
+
+.login_header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 9px;
+    width: 100%;
+    padding-bottom: 30px;
+}
+
+.login_text {
+    font-size: xx-large;
+    font-weight: 900;
+}
+
+.login_underline {
+    height: 5px;
+    width: 50px;
+    background-color: black;
+    border-radius: 3px;
+}
+
+.login_inputs {
+    margin-top: 55px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.login_input {
+    display: flex;
+    align-items: center;
+    margin: auto;
+    max-width: 300px;
+    height: 80px;
+}
+
+.login_input input {
+    height: 50px;
+    width: 400px;
+    padding-left: 5px;
+    background: transparent;
+    border-color: rgb(217, 217, 217);
+    border-radius: 6px;
+    border-style:solid;
+    outline: none;
+    color: black;
+    font-size: large;
+    font-family: Montserrat, sans-serif;
+}
+
+.forgot_password {
+    align-self: center;
+    margin-top: 27px;
+    color:  gray;
+    font-size: large;
+}
+.forgot_password span {
+    color: var(--background-color);
+    cursor: pointer;
+    font-weight: 500;
+}
+.forgot_password span:hover {
+    font-weight: 700;
+}
+
+.fields_empty {
+    align-self: center;
+    margin-top: 27px;
+    color:  darkred;
+    font-size: large;
+}
+
+.submit_container {
+    max-width:max-content;
+
+}
+
+.submit_button {
+    display: flex;
+    margin-top: 40px;
+    width: 150px;
+    padding: 10px;
+    cursor: pointer;
+    align-self: center;
+    border-radius: 15px;
+    background-color: var(--background-color);
+    color: #F7F3BC;
+    font-weight: 700;
+    justify-content: center;
+}
+
+.submit_button span {
+    color: var(--color);
+    font-weight: 600;
+}
+
+.submit_button span:hover {
+    background-color: var(--background-color);
+    color: var(--hover-color);
+}
+
+.login_submit_container {
+    display: flex;
+    gap: 15px;
+    margin-top: 60px;
+    margin-bottom: 160px;
+    justify-content: center;
+}
+
+.login_submit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 420px;
+    height: 59px;
+    border: 2px;
+    background-color: var(--background-color);
+    color: var(--color);
+    border-radius: 15px;
+    font-size: x-large;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 0 50px 0 50px;
+}
+.gray {
+    background: rgb(217, 217, 217);
+    border-color: transparent;
+    color: white;
+}

@@ -1,0 +1,132 @@
+body {
+    --background-color: #285340; 
+    --color: #F7F3BC;
+    --hover-color: #ECCC7B;
+}
+
+a,
+a:active {
+  text-decoration: none;
+  color: var(--color);
+}
+
+a:hover {
+    color: var(--hover-color);
+}
+
+.cont {
+    box-sizing: border-box;
+    max-width: 1780px;
+    margin: 0 auto; 
+}
+
+.cont :hover {
+    box-shadow: 0 1px 0 0 var(--background-color);
+    * {
+        box-shadow: none;
+    }
+}
+
+.task_container {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: space-evenly;
+    margin-top: 30px;
+    padding: 29px 0px;
+
+    font-family: Montserrat, sans-serif;
+}
+
+.task_row {
+    display: block;
+    width: 250px;
+    max-width: 300px;
+    padding: 5px;
+    border-radius: 10px;
+} 
+
+.status_row {
+    display: flex;
+    justify-content: center;
+}
+
+.actions_row {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+
+.task_name {
+    text-wrap:balance;
+    padding: 5px 5px;
+    border-radius: 5px;
+    background-color: var(--background-color);
+    color: var(--color);
+    font-weight: 800;
+    font-size: larger;
+}
+
+.task_date {
+    font-weight: 600;
+    
+}
+
+.task_desc {
+    font-weight: 500;
+    font-size: medium;
+}
+
+.task_status {
+    display: flex;
+    flex-wrap: wrap;
+    height: 100px;
+    width: 150px;
+    border-radius: 10px;
+    font-size: larger;
+    font-weight: 600;
+    cursor: pointer;
+    align-self: center;
+    justify-content: center;
+    align-content: center;
+}
+.task_status_active {
+    background-color: var(--background-color);
+    color: var(--color);
+}
+.task_status_active :hover {
+    color: var(--hover-color);
+    padding: 1px;
+}
+.task_status_inactive {
+    background-color: var(--color);
+    color: var(--hover-color);
+}
+.task_status_inactive :hover {
+    color: var(--background-color);
+    padding: 1px;
+}
+
+.action_button {
+    width: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-self: center;
+    gap: 5px;
+    padding: 0px 40px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.change_button {
+    background-color: var(--hover-color);
+}
+
+.delete_button {
+    color: var(--hover-color);
+    background-color: darkred;
+}
+

@@ -1,0 +1,65 @@
+body {
+    --background-color: #285340; 
+    --color: #F7F3BC;
+    --hover-color: #ECCC7B;
+}
+
+.row {
+    margin: 50px 0 50px 0;
+    display: flex;
+    justify-content: space-around;
+    outline: 1px solid var(--background-color);
+    border-radius: 10px;
+    padding: 20px;
+    cursor: pointer;
+}
+
+#add_cont :hover {
+    background-color: var(--background-color);
+    color: var(--hover-color);
+}
+
+.add_button {
+    font-family: Montserrat, sans-serif;
+    font-size: large;
+    font-weight: 700;
+}
+
+.overlay_children {
+    font-family: Montserrat, sans-serif;
+}
+
+.headline {
+    display: flex;
+    margin-top: 20px;
+    background-color: var(--background-color);
+    padding: 10px 30px 10px 15px;
+    color: var(--color);
+    border-radius: 5px;
+
+}
+
+.forms {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    padding-top: 10px;
+}
+
+.div_input {
+    padding: 10px 0 10px 0;
+}
+
+input, textarea {
+    background: transparent;
+    border-color: rgb(217, 217, 217);
+    border-radius: 6px;
+    border-style:solid;
+    outline: none;
+    color: black;
+    font-size: large;
+}
+
+.input_header input{
+    min-height: 40px;
+}

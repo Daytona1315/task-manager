@@ -1,0 +1,113 @@
+body {
+    --background-color: #285340; 
+    --color: #F7F3BC;
+    --hover-color: #ECCC7B;
+}
+
+a,
+a:active {
+  text-decoration: none;
+  color: var(--color);
+}
+
+a:hover {
+    color: var(--hover-color);
+}
+
+.head_row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-family: Montserrat, sans-serif; 
+    background-color: var(--background-color);
+    border-radius: 10px;   
+}
+
+.my_tasks {
+    font-weight: 900;
+    font-size: x-large;
+    display: flex;
+    flex-direction: column;
+}
+
+.username {
+    font-size: large;
+    font-weight: 700;
+}
+
+@media screen and (max-width: 412px){
+    .my_tasks {
+        font-size: small;
+    }
+    .nav {
+        font-size: x-small;
+
+    }
+    .username {
+        padding: 0 auto;
+        font-size: small;
+    }
+    
+    .sign_out {
+        padding: 0 auto;
+        font-size: small;
+    }
+}
+
+.head_h1 {
+    padding: 5px 30px;
+    background-color: var(--background-color);
+    color: var(--color);
+    border-radius: 10px;
+}
+
+.underline {
+    margin: 5px 30px;
+    height: 10px;
+    width: 110px;
+    max-width: 110px;
+    background-color: var(--color);
+}
+
+
+
+.nav {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    font-size: x-large;
+    background-color: var(--background-color);
+    padding: 5px 30px;
+    border-radius: 10px;
+
+}
+
+.username {
+    align-self: center;
+    padding: 15px;
+    font-weight: 400;
+}
+
+.sign_out {
+    align-self: center;
+    padding: 14px;
+    font-weight: 700;
+    color: var(--color);
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.sign_in {
+    align-self: center;
+    padding: 14px;
+    font-weight: 700;
+    color: var(--color);
+    cursor: pointer;
+}
+
+.sign_in:hover,
+.sign_out:hover {
+    color: var(--color);
+}
+

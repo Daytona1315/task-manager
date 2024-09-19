@@ -1,0 +1,16 @@
+pip-tools
+python-dotenv
+
+fastapi
+uvicorn
+pydantic
+pydantic-settings
+
+sqlalchemy
+psycopg2-binary
+
+pylint
+
+python-jose
+passlib
+bcrypt

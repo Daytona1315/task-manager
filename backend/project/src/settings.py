@@ -8,7 +8,7 @@ load_dotenv(find_dotenv(".env"))
 class Settings(BaseSettings):
     server_host: str
     server_port: int
-    database_url: str = 'sqlite:///src/instance/database.sqlite3'
+    database_url: str = 'sqlite:///./src/instance/database.sqlite3'
     jwt_secret: str
     jwt_algorithm: str = 'HS256'
     jwt_expiration: int = 3600

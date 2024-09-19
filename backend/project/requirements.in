@@ -8,7 +8,7 @@ pydantic-settings
 
 sqlalchemy
 alembic
-psycopg2
+psycopg2-binary
 
 pylint
 python-multipart

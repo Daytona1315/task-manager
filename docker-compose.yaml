@@ -16,18 +16,5 @@ services:
     networks:
       - dev 
 
-  nginx:
-    image: nginx:stable-alpine
-    ports:
-      - "80:80"
-    volumes:
-      - './nginx.conf:/etc/nginx/nginx.conf'
-      - ./nginx/html:/var/www/html
-    depends_on:
-      - frontend
-      - backend
-    networks:
-      - dev
-
 networks:
   dev:

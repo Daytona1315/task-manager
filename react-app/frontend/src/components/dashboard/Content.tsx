@@ -16,23 +16,29 @@ const Content = () => {
                 method: 'GET',
                 headers: {
                     "Content-Type": "application/json",
-                    Authorization: `Bearer ${storedToken}`
-                }})
-            if (!response.ok) {
-                console.log("Couldn't get data")
+                    Authorization: `Bearer ${storedToken}`,
+                }
+            });
+    
+            if (response.status === 404) {
+                
+                setData([]);
+
+            } else if (!response.ok) {
+                console.log("Couldn't get data");
+            } else {
+                const result = await response.json();
+                setData(result); 
             }
-            else {const result = await response.json();
-                setData(result)
-            }
-            }
-            catch (error) {console.error('Error:', error);}
-            finally {
-                setLoading(false)
-            }
-        };
+        } catch (error) {
+            console.error('Error:', error);
+        } finally {
+            setLoading(false);
+        }
+    };
 
     useEffect(() => {
-    fetchData();
+        fetchData();
     }, []);
 
     if (loading) {
@@ -41,13 +47,13 @@ const Content = () => {
         )
     }
 
-    if (!Array.isArray(data)) {
+    if (!Array.isArray(data) || data.length === 0) {
         return (
             <>
-                <AddTask fetchData={fetchData}/>
+                <AddTask fetchData={fetchData} />
                 <div className='no_tasks'><h1>No tasks</h1></div>
             </>
-        )
+        );
     }
 
     return ( 

@@ -90,8 +90,8 @@ const Task: React.FC<TaskProps> = ({ taskData, token, fetchData }) => {
                     Authorization: `Bearer ${token}`,
                 }},
             ); 
-            await fetchData()
-        } catch (error) {console.error(error)}; 
+            await fetchData();
+        }   catch (error) {console.error(error)}; 
     }
 
 // Запрос на сервер c обновлёнными данными задачи
@@ -114,7 +114,6 @@ const Task: React.FC<TaskProps> = ({ taskData, token, fetchData }) => {
 
     return (
         <>
-
             <Overlay isOpen={isOverlayOpen} onClose={() => setIsOverlayOpen(!isOverlayOpen)}>
                 <div className='overlay_children'>
                     <div className='headline'><h1>Edit task</h1></div>

@@ -1,5 +1,6 @@
 import './head.css'
 import '../main.css'
+import './content.css'
 import { Link } from "react-router-dom";
 
 import { useState, useEffect } from 'react';
@@ -41,7 +42,7 @@ const Head = () => {
     
     if (loading) {
         return (
-            <div><h1>Loading...</h1></div>
+            <div><h1 className='no_tasks'>Loading...</h1></div>
         )
     }
     

@@ -6,10 +6,10 @@ import Overlay from './Overlay';
 interface TaskProps {
     taskData: { [key: string]: any };
     token: string;
-    getTask: () => Promise<void>
+    fetchData: () => Promise<void>
   }
 
-const Task: React.FC<TaskProps> = ({ taskData, token, getTask }) => {
+const Task: React.FC<TaskProps> = ({ taskData, token, fetchData }) => {
     const id = taskData.id
     const [status, setStatus] = useState('')
     const [statusStyle, setStatusStyle] = useState('')
@@ -90,10 +90,8 @@ const Task: React.FC<TaskProps> = ({ taskData, token, getTask }) => {
                     Authorization: `Bearer ${token}`,
                 }},
             ); 
-            await getTask()
-            setIsOverlayOpen(false)
+            await fetchData()
         } catch (error) {console.error(error)}; 
-        
     }
 
 // Запрос на сервер c обновлёнными данными задачи
@@ -109,10 +107,9 @@ const Task: React.FC<TaskProps> = ({ taskData, token, getTask }) => {
             }, 
             
         ); 
-        await getTask()
+        await fetchData()
         setIsOverlayOpen(false)
         } catch (error) {console.error('Error:', error);};
-        
     }
 
     return (
@@ -124,7 +121,7 @@ const Task: React.FC<TaskProps> = ({ taskData, token, getTask }) => {
 
                     <div className='forms'>
                         <div className='div_input input_header' id='header_input'>
-                            <input type='text' placeholder='Header' maxLength={40}
+                            <textarea rows='2' cols='40' placeholder='Header' maxLength={50}
                             onChange={(e) => setCreationFields(
                                 { ...creationFields, name: e.target.value })}
                             value={creationFields.name}

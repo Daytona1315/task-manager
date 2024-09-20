@@ -11,6 +11,12 @@ function Header () {
     const [buttonSignIn, setButtonSignIn] = useState('sign_in')
     const [buttonSignOut, setButtonSignOut] = useState('invisible')
 
+    function signOut() {
+        localStorage.clear()
+        setButtonSignIn('sign_in')
+        setButtonSignOut('invisible')
+        setUsername('')
+    }
 
     useEffect(() => {
         function  handleUsername() {
@@ -42,7 +48,7 @@ function Header () {
                             <Link to="/auth" className="header_button">Sign In</Link>
                         </div>
                         <div className={userClassName}>{username}</div>
-                        <div className={buttonSignOut} onClick={() => localStorage.clear()}>
+                        <div className={buttonSignOut} onClick={signOut}>
                                 <Link to='/' className="header_button">Sign Out</Link>
                         </div>
                     </div>

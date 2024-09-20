@@ -47,19 +47,21 @@ a:hover {
 } 
 
 .status_row {
-    display: flex;
-    justify-content: center;
+    display: block;
+    align-self: baseline;
 }
 
 .actions_row {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 5px;
+    padding-bottom: 2px;
 }
 
 
 .task_name {
-    text-wrap:balance;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
     padding: 5px 5px;
     border-radius: 5px;
     background-color: var(--background-color);

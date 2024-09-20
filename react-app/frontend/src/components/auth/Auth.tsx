@@ -33,7 +33,7 @@ const LoginSignup = () => {
       
       // SIGN UP
         if (action==='Sign Up') {
-          const response = await fetch('http://127.0.0.1:5001/auth/sign-up', {
+          const response = await fetch('http://127.0.0.1:5001/auth/sign-up/', {
             method: 'POST',
             body: JSON.stringify(regFields),
             headers: {
@@ -62,7 +62,7 @@ const LoginSignup = () => {
       // SIGN IN
 
         if (action==='Sign In') {
-          const response = await fetch('http://127.0.0.1:5001/auth/sign-in', {
+          const response = await fetch('http://127.0.0.1:5001/auth/sign-in/', {
             method: 'POST',
             body: JSON.stringify(regFields),
             headers: {

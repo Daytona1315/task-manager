@@ -10,7 +10,7 @@ services:
 
   frontend:
     build:
-      context: ./react-app/task-manager
+      context: ./react-app/frontend
     ports:
       - "3001:3000"
     networks:

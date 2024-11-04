@@ -1,8 +1,8 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from .routers.task_router import router as task_router
-from .routers.auth_router import router as auth_router
+from backend.src.routers.task_router import router as task_router
+from backend.src.routers.auth_router import router as auth_router
 
 
 tags_metadata = [

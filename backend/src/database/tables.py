@@ -3,7 +3,7 @@ from sqlalchemy.orm import DeclarativeBase, relationship
 from sqlalchemy.orm import Mapped, mapped_column
 from datetime import datetime
 
-from ..schemas.task_schema import StatusTask
+from backend.src.schemas.task_schema import StatusTask
 
 
 class Base(DeclarativeBase):

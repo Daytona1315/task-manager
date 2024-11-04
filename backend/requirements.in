@@ -1,5 +1,6 @@
 pip-tools
 python-dotenv
+python-multipart
 
 fastapi
 uvicorn

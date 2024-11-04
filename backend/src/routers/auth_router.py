@@ -1,12 +1,13 @@
 from fastapi import APIRouter, Depends
 from fastapi.security import OAuth2PasswordRequestForm
+from typing_extensions import Annotated
 
 from ..schemas.auth_schema import (
-    UserCreate,
-    Token, User,
-    UserLogin,
+    UserCreate, Token, User,
 )
-from ..services.auth_service import AuthService, get_current_user
+from backend.src.services.auth_service import (
+    AuthService, get_current_user
+)
 
 router = APIRouter(
     prefix='/auth',
@@ -22,7 +23,7 @@ def sign_up(user_data: UserCreate,
 
 
 @router.post('/sign-in', response_model=Token)
-def sign_in(form_data: UserLogin,
+def sign_in(form_data: Annotated[OAuth2PasswordRequestForm, Depends()],
             service: AuthService = Depends()
             ):
     return service.authenticate_user(

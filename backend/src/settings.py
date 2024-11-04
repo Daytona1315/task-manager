@@ -12,7 +12,7 @@ port = int(os.getenv('SERVER_PORT'))
 class Settings(BaseSettings):
     server_host: str = host
     server_port: int = port
-    database_url: str = 'sqlite:///./src/instance/database.sqlite3'
+    database_url: str = 'sqlite:///backend/src/database/database.sqlite3'
     jwt_secret: str = secret
     jwt_algorithm: str = 'HS256'
     jwt_expiration: int = 3600

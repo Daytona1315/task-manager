@@ -6,17 +6,12 @@ from pydantic import ValidationError
 from starlette import status
 from datetime import datetime, timedelta
 from sqlalchemy.orm import Session
-from starlette.responses import JSONResponse
-from starlette.status import (
-    HTTP_409_CONFLICT,
-    HTTP_404_NOT_FOUND,
-    HTTP_401_UNAUTHORIZED, HTTP_422_UNPROCESSABLE_ENTITY,
-)
-from ..database import tables
-from ..database.engine import create_session
-from ..database.tables import User
-from ..schemas.auth_schema import User, Token, UserCreate
-from ..settings import settings
+
+from backend.src.database import tables
+from backend.src.database.engine import create_session
+from backend.src.database.tables import User
+from backend.src.schemas.auth_schema import User, Token, UserCreate
+from backend.src.settings import settings
 
 
 oauth2_schema = OAuth2PasswordBearer(tokenUrl='auth/sign-in')
@@ -68,7 +63,7 @@ class AuthService:
     def create_token(cls, user: User, ) -> Token | dict:
         user_data = User.model_validate(user)
 
-        now = datetime.utcnow()
+        now = datetime.now()
         payload = {
             'iat': now,
             'nbf': now,
@@ -86,7 +81,7 @@ class AuthService:
     def __init__(self, session: Session = Depends(create_session)):
         self.session = session
 
-    def register_new_user(self, user_data: UserCreate) -> Token | JSONResponse:
+    def register_new_user(self, user_data: UserCreate) -> Token | HTTPException:
         user = (
             self.session
             .query(tables.User)
@@ -103,37 +98,18 @@ class AuthService:
             self.session.commit()
             return self.create_token(user)
         else:
-            return JSONResponse(status_code=HTTP_409_CONFLICT,
-                                content={
-                                    "error": {
-                                        "message": "E-mail already exist",
-                                        "status_code": "HTTP_409_CONFLICT"
-                                    }
-                                })
+            return HTTPException(409, "Username already exists")
 
-    def authenticate_user(self, username: str, password: str) -> Token | JSONResponse:
+    def authenticate_user(self, username: str, password: str) -> Token | HTTPException:
         user = (
             self.session
             .query(tables.User)
             .filter(tables.User.username == username)
             .first()
         )
-
         if not user:
-            return JSONResponse(status_code=HTTP_404_NOT_FOUND,
-                                content={
-                                    "error": {
-                                        "message": "User not found",
-                                        "status_code": "HTTP_404_NOT_FOUND"
-                                    }
-                                })
+            return HTTPException(404, "User not found")
 
         if not self.verify_password(password, user.hashed_password):
-            return JSONResponse(status_code=HTTP_401_UNAUTHORIZED,
-                                content={
-                                    "error": {
-                                        "message": "Password is incorrect",
-                                        "status_code": "HTTP_401_UNAUTHORIZED"
-                                    }
-                                })
+            return HTTPException(401, "Password is incorrect")
         return self.create_token(user)

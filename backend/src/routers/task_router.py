@@ -1,15 +1,15 @@
 from typing import List
 
 from fastapi import (
-    APIRouter, Depends, Response, status,
+    APIRouter, Depends,
 )
 
-from ..schemas.task_schema import (
+from backend.src.schemas.task_schema import (
     StatusTask, BaseTask, CreateTask, EditTask,
 )
-from ..schemas.auth_schema import User
-from ..services.task_service import TaskService
-from ..services.auth_service import get_current_user
+from backend.src.schemas.auth_schema import User
+from backend.src.services.task_service import TaskService
+from backend.src.services.auth_service import get_current_user
 
 
 router = APIRouter(
@@ -23,9 +23,6 @@ def get_tasks(
         user: User = Depends(get_current_user),
         service: TaskService = Depends(),
 ):
-    """
-    **Get list with all user's operations.**
-    """
     return service.get_tasks(user.id)
 
 
@@ -54,7 +51,7 @@ def change_status(
         user: User = Depends(get_current_user),
         service: TaskService = Depends(),
 ):
-    return service.change_task(task_id, user.id, task_status=task_status)
+    return service.change_task_status(task_id, user.id, task_status=task_status)
 
 
 @router.put('/edit/{task_id}/', response_model=EditTask)
@@ -73,5 +70,4 @@ def delete_task(
         user: User = Depends(get_current_user),
         service: TaskService = Depends(),
 ):
-    service.delete_task(task_id, user.id)
-    return Response(status_code=status.HTTP_200_OK)
+    return service.delete_task(task_id, user.id)
